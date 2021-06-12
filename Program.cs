@@ -40,7 +40,7 @@ _client.MessageReceived += async (arg) =>
 };
 _client.ReactionAdded += async (msg, chan, react) =>
 {
-    if (chan is ITextChannel tChan && tChan.GuildId == 446054909377511437 && msg.Id == 853067193968492574)
+    if (react.Channel is ITextChannel tChan && tChan.GuildId == 446053427714326528 && msg.Id == 853067193968492574)
     {
         if (react.Emote.Name == "🌟")
         {
