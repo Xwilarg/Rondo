@@ -65,6 +65,33 @@ _client.ReactionAdded += async (msg, chan, react) =>
         }
     }
 };
+_client.ReactionRemoved += async (msg, chan, react) =>
+{
+    if (react.Channel is ITextChannel tChan && tChan.GuildId == 446053427714326528 && msg.Id == 853067193968492574)
+    {
+        if (react.Emote.Name == "🌟")
+        {
+            if (react.User.Value is IGuildUser gUser)
+            {
+                await gUser.RemoveRoleAsync(853071016733573140);
+            }
+        }
+        else if (react.Emote.Name == "🔞")
+        {
+            if (react.User.Value is IGuildUser gUser)
+            {
+                await gUser.RemoveRoleAsync(853071055127183410);
+            }
+        }
+        else if (react.Emote.Name == "📰")
+        {
+            if (react.User.Value is IGuildUser gUser)
+            {
+                await gUser.RemoveRoleAsync(853071085582286878);
+            }
+        }
+    }
+};
 
 await _client.LoginAsync(TokenType.Bot, File.ReadAllText("token.txt"));
 await _client.StartAsync();
